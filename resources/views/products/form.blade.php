@@ -8,7 +8,8 @@
                 <h1>Cadastro de Produto</h1>
             </div>
         </div>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="/produtos" method="POST" enctype="multipart/form-data">
+           @CSRF
             <div class="form-group">
                 <label for="nameProduct">Nome do Produto</label>
                 <input class="form-control" type="text" name="nameProduct" id="nameProduct">
@@ -34,6 +35,21 @@
             </div>
             
         </form>
+
+<!-- Para eu passar o resultado para dentro da minha view, passando uma mensagem para o meu usuario, pois o controller nao sabe fazer isso de forma bonita. Por isso temos os if's abaixo. -->
+        <div class="row">
+            <div class="col-md-12">
+                @if(isset($result))
+                <!-- pergunta se a variavel acima existe -->
+                    @if($result)
+                    <!-- pergunta se a variavel eh verdadeira -->
+                        <h1>Deu certo campeão!</h1>
+                        @else
+                        <h1>Não deu certo o cadastro e foi sua culpa.</h1>
+                    @endif
+                @endif
+            </div>
+        </div>
     
     </section>
 @endsection

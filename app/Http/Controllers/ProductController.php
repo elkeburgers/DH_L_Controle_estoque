@@ -30,40 +30,40 @@ class ProductController extends Controller {
     // }else{
     //     echo "vai ter que criar uma query!";
     // } = teste para saber se funciona, deu ok.
-        return view('products.form', ["result"=>$result]);
+        return view('products.formRegister', ["result"=>$result]);
 
     }
 
     public function viewForm(Request $request){
-        return view('products.form');
+        return view('products.formRegister');
     }
 
     // funcao para atualizar dados, precisa criar a rota
-    public function update(Request $request){
-    // para atualizar devemos buscar um objeto ao inves de criar, usando o metodo flobal find
-    // eh necessario usar rotas com parametros
-    $newProduct = Product::find($idProduto);
-    $newProduct->name = $request->nameProduct;
-    $newProduct->description = $request->descriptionProduct;
-    $newProduct->quantity = $request->quantityProduct;
-    $newProduct->price = $request->priceProduct;
-    $newProduct->user_id = Auth::user()->id;
-    $result = $newProduct->save();
-    return view('products.form', ["result"=>$result]);
-}
+    // para atualizar devemos buscar um objeto ao inves de criar, usando o metodo global find
+    // eh necessario usar rotas com parametros (em routes)
+    // '$id=0' para retornar este valor caso a rota nao receba nenhum id, e if para validacao para barrar a execucao em caso de codigo falso (completa com else no final da view)
+    // para mandar as informacoes para a view, faz o array associativo (primeira linha do if) com a  variavel product que jah busca o objeto completo da tabela.
+    public function viewFormUpdate(Request $request, $id=0){
+        $product = Product::find($id);
+        if($product){
+            return view('products.formUpdate', ["product"=>$product]);
+        }else{
+            return view('products.formUpdate');
+        }
+    }
 
     // para deletar um produto
-    public function delete (Request $request){
+    // public function delete (Request $request){
     // para deletar vc vai usar Product::destroy($id)
-    }
+    // }
 
     // para ver todos os produtos
-    public function viewAllProducts (Request $request){
+    // public function viewAllProducts (Request $request){
         // vai precisar de Product::All()
-    }
+    // }
 
      // para ver um produto
-     public function oneProducts (Request $request){
+    //  public function oneProducts (Request $request){
         // vai precisar de Product::find($idProduct)
-    }
+    // }
 }

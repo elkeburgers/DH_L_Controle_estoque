@@ -40,6 +40,9 @@
             </div>
             
         </form>
+
+        <!-- se meu result for valido, nao quero que apareca a mensagem do else (pular), para quando a atualizacao dah certo (senao, a rota se confunde e manda a mensagem de erro do id mais a de sucesso da atualizacao) -->
+        @elseif(isset($result))
         <!-- else por conta da validacao de id no controller -->
         @else
         <h1>Você não passou um id, ou o produto não existe.</h1>

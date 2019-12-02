@@ -8,7 +8,7 @@
                 <h1>Cadastro de Produto</h1>
             </div>
         </div>
-        <form action="/produtos" method="POST" enctype="multipart/form-data">
+        <form action="/produtos/cadastrar" method="POST" enctype="multipart/form-data">
            @CSRF
             <div class="form-group">
                 <label for="nameProduct">Nome do Produto</label>

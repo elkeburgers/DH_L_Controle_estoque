@@ -16,13 +16,14 @@ Route::get('/', function () {
 });
 
 
- 
+//  a rota padrao abaixo cria as rotas login e register de usuario automaticamente para nos
 Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/produtos/cadastrar', 'ProductController@viewForm');
+// vou informar que a rota abaixo precisa de usuario logado, informando o middleware que verifica isso, usando o checkuser que cadastramos dentro do Kernel. Poderiamos usar apenas nesta porque as outras paginas teoricamente so seriam acessadas apos esta, mas por seguranca se coloca em todas. 
+Route::get('/produtos/cadastrar', 'ProductController@viewForm')->middleware('checkuser');
 Route::post('/produtos/cadastrar', 'ProductController@create');
 
 // usando rota parametrizada (bigodes) para poder usar a informacao dinamica (id do produto). Com isso, ele pega no controller o id do produto e jah carrega no formulario de atualizacao

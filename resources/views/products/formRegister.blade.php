@@ -43,7 +43,8 @@
                 <!-- pergunta se a variavel acima existe -->
                     @if($result)
                     <!-- pergunta se a variavel eh verdadeira -->
-                        <h1>Deu certo campeão!</h1>
+                        <h1>Cadastro realizado com sucesso.</h1>
+                        <a href="../produtos">Tabela de produtos cadastrados.</a>
                         @else
                         <h1>Não deu certo o cadastro e foi sua culpa.</h1>
                     @endif

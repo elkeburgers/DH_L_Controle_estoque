@@ -26,7 +26,7 @@
                     </thead>
                     <tbody>
                     <!-- para cada produto, tenho uma estrutura igual a essa, precisando de um looping para trazer todos: -->
-                    <!-- forelse para poder dar um retorno no caso de falta de produtos cadastrados, com o empty -->
+                    <!-- forelse para poder dar um retorno no caso de falta de produtos cadastrados, indo para o empty -->
                     @forelse($listProduct as $product)
                         <tr>
                             <th scope="row">{{$product->id}}</th>
@@ -34,13 +34,13 @@
                             <td>{{$product->description}}</td>
                             <td>{{$product->quantity}}</td>
                             <td>R$ {{$product->price}}</td>
-                            <!-- funciona o users porque no model Product tem umbelong que retorna as informacoes de usuarios -->
-                            <td>usuario</td>
+                            <!-- funciona o user porque no model Product tem um belong que retorna as informacoes de usuarios -->
+                            <td>{{$product->user->name}}</td>
                             <td>{{$product->created_at}}</td>
                             <td>{{$product->updated_at}}</td>
                             <td>
-                                <a class="btn btn-primary" href="/produtos/atualizar/{{$product->id}}">Atualizar</a>
-                                <a class="btn btn-danger" href="/produtos/deletar/{{$product->id}}">Deletar</a>
+                                <a class="btn btn-primary btn-sm" href="/produtos/atualizar/{{$product->id}}">Atualizar</a>
+                                <a class="btn btn-danger btn-sm" href="/produtos/deletar/{{$product->id}}">Deletar</a>
                             </td>
                         </tr>
                     @empty 
@@ -50,11 +50,8 @@
                 </table>
             
             </div>
-
         </div>
     </section>
-
-
 
 <!-- fim da section 'content' -->
 @endsection

@@ -14,7 +14,8 @@ class Product extends Model
 //    public $primaryKey = "id";
 //    public $timestamps = false;
 
-    public function users(){
+// tem que ser user no singular, senao o laravel entende que tem varios usuarios e por isso dah problemas para executar, pois comeca a buscar varios ususarios e nao consegue.
+    public function user(){
         return $this->belongsTo('App\User');
         // para vincular a criacao do produto ao id do usuario que o cadastrou.
     }

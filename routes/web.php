@@ -18,6 +18,10 @@ Route::get('/', function () {
 
 //  a rota padrao abaixo cria as rotas login e register de usuario automaticamente para nos
 Auth::routes();
+// rota para api google de redes sociais - 1 envia e 2 recebe
+Route::get('/login/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('/login/google/callback', 'Auth\LoginController@receiveDataGoogle');
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -49,6 +49,13 @@
                                     </label>
                                 </div>
                             </div>
+                        </div><br>
+
+                        <div class="form-group">
+                            <h3>Ou faça login pelas redes sociais:</h3>
+                            <a href="/login/google">
+                                <img width="150" src="/img/google-logo-1.png" />
+                            </a>
                         </div>
 
                         <div class="form-group row mb-0">
